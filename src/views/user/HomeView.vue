@@ -1,5 +1,7 @@
 <script setup>
 import UserLayout from "@/layouts/UserLayout.vue";
+import Product from "@/components/Product.vue";
+
 import { useProductStore } from "@/stores/user/product";
 
 const productStore = useProductStore();
@@ -19,6 +21,8 @@ const productStore = useProductStore();
     </div>
 
     <!-- Product shelf -->
+    <Product> </Product>
+
     <section
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 m-6"
     >
