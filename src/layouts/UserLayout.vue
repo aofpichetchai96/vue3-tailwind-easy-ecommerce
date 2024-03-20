@@ -1,8 +1,9 @@
 <script setup>
 import { ref , onMounted} from 'vue';
-import { RouterLink } from "vue-router";
-
+import { RouterLink, useRouter } from "vue-router";
+const router = useRouter();
 const isLoggedIn = ref(false);
+const searchText = ref('');
 
 onMounted(() => {
     if(localStorage.getItem('isLoggedIn')){
@@ -18,20 +19,35 @@ const logout = () => {
     isLoggedIn.value = false;
     localStorage.removeItem('isLoggedIn');
 }
+
+const handleSearch = (event) => {
+  if(event.key === 'Enter'){   
+    router.push({
+      name: 'search',
+      query: {
+        q: searchText.value,     
+      }
+    });
+  }
+}
 </script>
 
 <template>
   <div class="container mx-auto">
+    
+    <!-- Header -->
     <div class="navbar bg-base-100">
       <div class="flex-1">
         <RouterLink :to="{ name : 'home' }" class="btn btn-ghost text-xl">AofferMan Shop</RouterLink>
       </div>
       <div class="flex-none gap-2">
         <div class="form-control">
-          <input
+          <input v
             type="text"
             placeholder="Search"
             class="input input-bordered w-24 md:w-auto"
+            v-model="searchText"
+            @keyup="handleSearch"
           />
         </div>
 
@@ -100,7 +116,9 @@ const logout = () => {
 
     <!-- Main Content -->
     <slot> </slot>
-
+    
+    
+    <!-- Footer  -->
     <footer class="footer p-10 bg-neutral text-neutral-content">
       <nav>
         <h6 class="footer-title">Services</h6>
