@@ -4,31 +4,31 @@ export const useProductStore = defineStore("product", {
   state: () => ({
     list: [
       {
-        name: "test 1",
+        name: "Dog",
         imageUrl:
           "https://fastly.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U",
         quantity: 10,
-        about: "testt",
+        about: "a dog black",
         status: "open",
         price: 100,
       },
       {
-        name: "test 3",
+        name: "Tree",
         imageUrl:
           "https://fastly.picsum.photos/id/476/200/300.jpg?grayscale&hmac=rdN4pV7JFAtH4ZU68rquanFotYqni0n_KK5r1xHH_ZM",
-        quantity: 10,
-        about: "testt",
+        quantity: 30,
+        about: "Whole forest of trees",
         status: "open",
-        price: 100,
+        price: 130,
       },
       {
-        name: "test 5",
+        name: "Dog",
         imageUrl:
           "https://fastly.picsum.photos/id/1025/200/300.jpg?grayscale&hmac=yWlM4YgYpQ19yEPQSYvBTGpMoGUaoidypwPzn5fzSbg",
-        quantity: 10,
-        about: "testt",
+        quantity: 20,
+        about: "Pin-up dog",
         status: "open",
-        price: 100,
+        price: 120,
       },
     ],
   }),
