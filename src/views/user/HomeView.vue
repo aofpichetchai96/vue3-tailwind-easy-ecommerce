@@ -1,11 +1,18 @@
 <script setup>
 import UserLayout from "@/layouts/UserLayout.vue";
-
 import Product from "@/components/icons/Product.vue";
 
 import { useProductStore } from "@/stores/user/product";
+import { useCartStore } from "@/stores/user/cart";
 
 const productStore = useProductStore();
+const cartStore = useCartStore();
+
+const addToCart = (product) => {
+  console.log("Hiiiiii addToClass");
+  console.log(product);
+  cartStore.addToCart(product);
+};
 </script>
 
 <template>
@@ -21,6 +28,6 @@ const productStore = useProductStore();
       </div>
     </div>
 
-    <Product :products="productStore.list"> </Product>
+    <Product :products="productStore.list" :addToCart="addToCart"> </Product>
   </UserLayout>
 </template>
