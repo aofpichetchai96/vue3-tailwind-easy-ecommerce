@@ -1,4 +1,5 @@
 <script setup>
+import { RouterLink } from "vue-router";
 import UserLayout from "@/layouts/UserLayout.vue";
 import Close from "@/components/icons/Close.vue";
 
@@ -73,6 +74,11 @@ const changeQuantity = (event, index) => {
             <div>ราคารวททั้งหมด</div>
             <div>{{ cartStore.summaryPrice }}</div>
           </div>
+          <RouterLink
+            :to="{ name: 'checkout' }"
+            class="btn btn-neutral w-full mt-4"
+            >ชำระเงิน</RouterLink
+          >
         </div>
       </div>
     </div>
