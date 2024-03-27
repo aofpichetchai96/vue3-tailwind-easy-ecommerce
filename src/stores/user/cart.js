@@ -4,6 +4,7 @@ import { defineStore } from "pinia";
 export const useCartStore = defineStore("cart", {
   state: () => ({
     items: [],
+    checkouts: {}
   }),
   getters: {
     summartQuantity(state) {
@@ -21,8 +22,15 @@ export const useCartStore = defineStore("cart", {
       if (previousCart) {
         this.items = JSON.parse(previousCart);
       }
-    },
-    addToCart(productData) {
+    },  
+    addToCart(productData) { 
+      if(localStorage.getItem('isLoggedIn')){
+      }else{
+        alert('Please Login')
+        window.location.reload();
+        return false;       
+      } 
+
       const findProductIndex = this.items.findIndex((item) => {
         return item.name === productData.name;
       });
@@ -45,5 +53,23 @@ export const useCartStore = defineStore("cart", {
       this.items.splice(index, 1);
       localStorage.setItem("cart-data", JSON.stringify(this.items));
     },
+    checkout(userData){
+      const orderData = {
+          ...userData,
+          totalPrice: this.summaryPrice,
+          paymantMethod: 'Credit Card',
+          createdData: (new Date()).toLocaleString(),
+          oderNumber:  `AA${Math.floor((Math.random() * 90000) + 10000)}`,
+          products: this.items        
+      }   
+    
+      localStorage.setItem("order-data", JSON.stringify(orderData))
+    },
+    loadCheckout(){
+      const orderData = localStorage.getItem('order-data');
+      if(orderData){     
+        this.checkouts = JSON.parse(orderData)      
+      }
+    }
   },
 });

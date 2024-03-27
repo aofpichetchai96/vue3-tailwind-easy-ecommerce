@@ -1,6 +1,6 @@
 <script setup>
 import { reactive } from "vue";
-import { RouterLink } from "vue-router";
+import { RouterLink, useRouter } from "vue-router";
 import UserLayout from "@/layouts/UserLayout.vue";
 
 import { useCartStore } from "@/stores/user/cart";
@@ -24,6 +24,7 @@ const checkoutForm = [
   },
 ];
 // const userCheckoutData = reactive({});
+const router = useRouter();
 const cartStore = useCartStore();
 const userFromData = reactive({
   email: "",
@@ -32,8 +33,9 @@ const userFromData = reactive({
   note: "",
 });
 
-const payment = () => {
-  console.log(userFromData);
+const payment = async () => {
+  await cartStore.checkout(userFromData);  
+  await router.push({name: 'success'});
 };
 </script>
 <template>
@@ -53,14 +55,16 @@ const payment = () => {
             v-model="userCheckoutData[form.field]"
           ></textarea> -->
           <input
+            v-model="userFromData[from.field]"
             type="text"
             placeholder="Type here"
             class="input input-bordered input-sm w-full"
-          />
+          />       
         </div>
         <button @click="payment" class="btn btn-primary w-full mt-4">
           ชำระเงิน
         </button>
+      
       </section>
 
       <section class="flex-auto w-32 p-4 bg-slate-200">

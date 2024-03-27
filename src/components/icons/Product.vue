@@ -5,6 +5,7 @@ defineProps({
   products: Array,
   addToCart: Function,
 });
+
 </script>
 
 <template>

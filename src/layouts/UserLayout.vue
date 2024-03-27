@@ -22,6 +22,9 @@ const login = () => {
 const logout = () => {
     isLoggedIn.value = false;
     localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('cart-data');
+    localStorage.removeItem('order-data');
+    window.location.reload();
 }
 
 const handleSearch = (event) => {
