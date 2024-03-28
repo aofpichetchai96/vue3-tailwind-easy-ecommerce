@@ -11,7 +11,7 @@ const cartStore = useCartStore();
 
 const imageUrl = ref('https://raw.githubusercontent.com/aofpichetchai96/vue3-tailwind-easy-ecommerce/main/public/aofferman-icon.png');
 
-
+ 
 onMounted(() => {
     if(localStorage.getItem('isLoggedIn')){
         isLoggedIn.value = true;        
