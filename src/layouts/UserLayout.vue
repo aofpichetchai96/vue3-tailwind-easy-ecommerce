@@ -1,5 +1,5 @@
 <script setup>
-import { ref , onMounted} from 'vue';
+import { ref , onMounted, reactive} from 'vue';
 import { RouterLink, useRouter } from "vue-router";
 
 import { useCartStore } from "@/stores/user/cart";
@@ -9,21 +9,31 @@ const isLoggedIn = ref(false);
 const searchText = ref('');
 const cartStore = useCartStore();
 
+const imageUrl = ref('../../public/aofferman-icon.png');
+
+
 onMounted(() => {
     if(localStorage.getItem('isLoggedIn')){
-        isLoggedIn.value = true;
+        isLoggedIn.value = true;        
+    }
+    if(localStorage.getItem('user-profile')){
+      let imglocal = JSON.parse(localStorage.getItem('user-profile'))   
+      imageUrl.value =  imglocal.imageUrl;
     }
 });
 
 const login = () => {
     isLoggedIn.value = true;
     localStorage.setItem('isLoggedIn',true);
+    if(localStorage.getItem('user-profile')){
+      let imglocal = JSON.parse(localStorage.getItem('user-profile'))   
+      imageUrl.value =  imglocal.imageUrl;
+    }
 }
-const logout = () => {
+const logout = async () => {
     isLoggedIn.value = false;
-    localStorage.removeItem('isLoggedIn');
-    localStorage.removeItem('cart-data');
-    localStorage.removeItem('order-data');
+    localStorage.clear();
+    await router.push({name: 'home'})
     window.location.reload();
 }
 
@@ -104,7 +114,7 @@ const handleSearch = (event) => {
             <div class="w-10 rounded-full">
               <img
                 alt="Tailwind CSS Navbar component"
-                src="../../public/aofferman-icon.png"
+                :src="imageUrl"
               />
             </div>
           </div>

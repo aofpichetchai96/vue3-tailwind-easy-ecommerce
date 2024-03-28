@@ -34,6 +34,8 @@ export const useProductStore = defineStore("product", {
   }),
   actions: {
     filterProducts(searchText) {
+      // const lowersearchText = searchText.toLowerCase();
+      // const productNameText = product.name.toLowerCase()
       return this.list.filter((product) => product.name.includes(searchText));
     },
   },
