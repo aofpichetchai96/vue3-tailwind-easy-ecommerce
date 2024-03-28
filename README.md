@@ -1,15 +1,8 @@
 # vue-project
 
-Todo easy E commerce project with Vue.js3 + Tailwindcss
+Learn Vue.js3 + Tailwindcss, By doing Easy E commerce project. 
 
-## Project Setup
+Action Easy E-Commerce Project
 
-```sh
-npm install
-```
+# Live site: [https://vue3-tailwind-easy-ecommerce.pages.dev/](https://vue3-tailwind-easy-ecommerce.pages.dev/)
 
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
