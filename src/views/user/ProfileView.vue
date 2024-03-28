@@ -8,7 +8,7 @@
   ];
 
   const userData = reactive({
-    imageUrl: '../../../public/aofferman-icon.png',
+    imageUrl: 'https://raw.githubusercontent.com/aofpichetchai96/vue3-tailwind-easy-ecommerce/main/public/aofferman-icon.png',
     email: '',
     name: ''
   });
