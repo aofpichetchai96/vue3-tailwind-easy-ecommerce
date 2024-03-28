@@ -9,7 +9,7 @@ const isLoggedIn = ref(false);
 const searchText = ref('');
 const cartStore = useCartStore();
 
-const imageUrl = ref('../public/aofferman.png');
+const imageUrl = ref('https://avatars.githubusercontent.com/u/134577551?v=4');
 
  
 onMounted(() => {

@@ -8,7 +8,7 @@
   ];
 
   const userData = reactive({
-    imageUrl: '../public/aofferman.png',
+    imageUrl: 'https://avatars.githubusercontent.com/u/134577551?v=4',
     email: '',
     name: ''
   }); 
