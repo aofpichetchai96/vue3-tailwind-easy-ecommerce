@@ -9,7 +9,7 @@ const isLoggedIn = ref(false);
 const searchText = ref('');
 const cartStore = useCartStore();
 
-const imageUrl = ref('https://raw.githubusercontent.com/aofpichetchai96/vue3-tailwind-easy-ecommerce/main/public/aofferman-icon.png');
+const imageUrl = ref('../public/aofferman.png');
 
  
 onMounted(() => {
