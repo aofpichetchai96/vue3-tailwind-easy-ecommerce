@@ -1,6 +1,6 @@
 # vue-project
 
-Todo easy E commerce project with Vue.js 3 and Tailwindcss and Firebase.
+Todo easy E commerce project with Vue.js3 + Tailwindcss
 
 ## Project Setup
 
@@ -12,10 +12,4 @@ npm install
 
 ```sh
 npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
 ```
